@@ -1,6 +1,7 @@
 GITHUB_USER ?= SadraSamadi
 
 kube-up:
+	minikube addons enable metrics-server
 	minikube start
 
 kube-down:
