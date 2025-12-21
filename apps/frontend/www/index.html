@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frontend</title>
+</head>
+<body>
+<div id="root"></div>
+<script>
+    async function get(url) {
+        const res = await fetch(url);
+        return res.json();
+    }
+    async function main() {
+        const config = await get("/assets/config.json");
+        const data = await get(config.url);
+        const root = document.getElementById("root");
+        root.innerText = JSON.stringify(data);
+    }
+    document.addEventListener("DOMContentLoaded", main);
+</script>
+</body>
+</html>
