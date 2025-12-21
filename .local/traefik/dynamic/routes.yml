@@ -1,0 +1,27 @@
+http:
+
+  routers:
+    backend-router:
+      rule: "Host(`localhost`) && PathPrefix(`/api/`)"
+      middlewares:
+        - "backend-middleware"
+      service: backend-service
+    frontend-router:
+      rule: "Host(`localhost`)"
+      service: frontend-service
+
+  middlewares:
+    backend-middleware:
+      stripPrefix:
+        prefixes:
+          - "/api"
+
+  services:
+    backend-service:
+      loadBalancer:
+        servers:
+          - url: http://backend:8080
+    frontend-service:
+      loadBalancer:
+        servers:
+          - url: http://frontend:80

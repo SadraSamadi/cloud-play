@@ -1,8 +1,0 @@
-- name: First Play
-  hosts: all
-  tasks:
-    - name: Ping Hosts
-      ansible.builtin.ping:
-    - name: Print Message
-      ansible.builtin.debug:
-        msg: Hello, World!

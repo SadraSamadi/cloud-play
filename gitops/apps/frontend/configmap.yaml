@@ -1,0 +1,6 @@
+apiVersion: builtin
+kind: ConfigMapGenerator
+metadata:
+  name: frontend
+literals:
+  - config.json={"api":"http://localhost:8080/backend"}

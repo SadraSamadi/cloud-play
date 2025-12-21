@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+spec:
+  interval: 10m
+  chart:
+    spec:
+      interval: 1h
+      chart: traefik
+      version: "35.*.*"
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: traefik
+  values:
+    ingressRoute:
+      dashboard:
+        enabled: true

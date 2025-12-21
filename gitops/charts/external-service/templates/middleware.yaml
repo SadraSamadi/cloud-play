@@ -1,0 +1,10 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ include "resource-name" . }}
+  labels:
+    {{- include "labels" . | indent 4 }}
+spec:
+  stripPrefix:
+    prefixes:
+      - /{{ include "resource-name" . }}

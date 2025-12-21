@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: frontend
+spec:
+  interval: 10m
+  chart:
+    spec:
+      interval: 10m
+      chart: ./gitops/charts/external-service
+      version: "1.*.*"
+      sourceRef:
+        kind: GitRepository
+        namespace: flux-system
+        name: shuttle

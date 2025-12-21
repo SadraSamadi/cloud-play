@@ -1,0 +1,35 @@
+services:
+
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    command: start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+
+  vault:
+    image: hashicorp/vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: secret
+    ports:
+      - "8200:8200"
+
+  traefik:
+    image: traefik
+    volumes:
+      - ./traefik:/etc/traefik:ro
+    ports:
+      - "80:80"
+      - "1080:8080"
+
+  backend:
+    build:
+      context: ../backend
+
+  frontend:
+    build:
+      context: ../frontend
+    volumes:
+      - ./frontend:/usr/share/nginx/html/data:ro
