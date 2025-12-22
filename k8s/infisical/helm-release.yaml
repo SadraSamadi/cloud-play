@@ -6,10 +6,16 @@ metadata:
 spec:
   chart:
     spec:
-      chart: infisical
+      chart: infisical-standalone
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
         name: infisical
-      version: 0.4.2
+      version: "*"
   interval: 1m0s
+#  values:
+#    infisical:
+#      image:
+#        repository: infisical/infisical
+#        tag: "0.54.6"
+#        pullPolicy: IfNotPresent
