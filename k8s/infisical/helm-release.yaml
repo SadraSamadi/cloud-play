@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: infisical
+  namespace: default
+spec:
+  chart:
+    spec:
+      chart: infisical-standalone
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: infisical
+      version: 0.4.2
+  interval: 1m0s
