@@ -13,3 +13,6 @@ spec:
         name: traefik
       version: 38.0.1
   interval: 1m0s
+  values:
+    service:
+      type: ClusterIP
