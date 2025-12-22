@@ -6,7 +6,7 @@ kube-up:
 
 kube-down:
 	minikube stop
-	#minikube delete --all
+	minikube delete --all
 
 flux-boot:
 	flux bootstrap github \
