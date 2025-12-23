@@ -20,6 +20,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push Docker image
         run: |
-          cd apps/backend
+          cd apps/frontend
           docker build -t sadrasamadi/shuttle-frontend:latest .
           docker push sadrasamadi/shuttle-frontend:latest
