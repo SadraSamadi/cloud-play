@@ -20,6 +20,12 @@ spec:
         - name: backend
           image: sadrasamadi/shuttle-backend:latest
           imagePullPolicy: Always
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend
+                  key: DB_URL
           ports:
             - containerPort: 8080
               protocol: TCP
