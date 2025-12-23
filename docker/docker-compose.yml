@@ -3,21 +3,20 @@ name: shuttle
 services:
 
   traefik:
-    image: traefik:latest
+    image: traefik:3.6
     container_name: traefik
     restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
+    command:
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=proxy"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host(`dashboard.docker.localhost`)"
-      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.rule=Host(`dash.localhost`)"
       - "traefik.http.routers.dashboard.service=api@internal"
-      - "traefik.http.routers.dashboard.tls=true"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik/certs:/certs:ro
-      - ./traefik/configs:/etc/traefik:ro
     networks:
       - proxy
     ports:
@@ -30,9 +29,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`api.docker.localhost`)"
-      - "traefik.http.routers.backend.entrypoints=websecure"
-      - "traefik.http.routers.backend.tls=true"
+      - "traefik.http.routers.backend.rule=Host(`api.localhost`)"
     networks:
       - proxy
 
@@ -42,9 +39,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`app.docker.localhost`)"
-      - "traefik.http.routers.frontend.entrypoints=websecure"
-      - "traefik.http.routers.frontend.tls=true"
+      - "traefik.http.routers.frontend.rule=Host(`app.localhost`)"
     volumes:
       - ./frontend:/usr/share/nginx/html/assets:ro
     networks:

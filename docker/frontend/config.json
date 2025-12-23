@@ -1,1 +1,3 @@
-{"url":"https://api.docker.localhost"}
+{
+	"url": "http://api.localhost"
+}

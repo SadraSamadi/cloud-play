@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: default
+  namespace: shuttle
   labels:
     app: frontend
 spec:
@@ -20,7 +20,14 @@ spec:
         - name: frontend
           image: sadrasamadi/shuttle-frontend:latest
           imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: /usr/share/nginx/html/assets
           ports:
             - containerPort: 80
               protocol: TCP
       restartPolicy: Always
+      volumes:
+        - name: config
+          configMap:
+            name: frontend

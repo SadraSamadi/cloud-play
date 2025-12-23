@@ -10,9 +10,9 @@ kube-down:
 
 flux-boot:
 	flux bootstrap github \
-      --token-auth \
-      --owner=$(GITHUB_USER) \
-      --repository=cloud-play \
-      --branch=main \
-      --path=k8s \
-      --personal
+		--token-auth \
+		--owner=$(GITHUB_USER) \
+		--repository=cloud-play \
+		--branch=main \
+		--path=k8s \
+		--personal
