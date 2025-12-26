@@ -1,6 +1,6 @@
 all:
   hosts:
-    test:
-      ansible_host: 127.0.0.1
+    shuttle:
+      ansible_host: 193.242.125.85
       ansible_port: 22
-      ansible_user: root
+      ansible_user: ansible

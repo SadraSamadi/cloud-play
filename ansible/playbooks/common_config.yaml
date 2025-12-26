@@ -1,0 +1,11 @@
+- name: Apply common configuration
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Disable firewall
+      ansible.builtin.service:
+        name: ufw
+        state: stopped
+        enabled: no

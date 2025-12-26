@@ -1,0 +1,38 @@
+- name: Install and configure K3s
+  hosts: shuttle
+  become: yes
+
+  vars_files:
+    - ../vars.yaml
+
+  vars:
+    k3s_install_script: /usr/local/bin/k3s-install.sh
+
+  tasks:
+
+    - name: Create K3s config directory
+      ansible.builtin.file:
+        path: /etc/rancher/k3s
+        state: directory
+        mode: '0755'
+
+    - name: Configure K3s registry mirror
+      ansible.builtin.copy:
+        dest: /etc/rancher/k3s/registries.yaml
+        mode: '0644'
+        content: |
+          mirrors:
+            docker.io:
+              endpoint:
+                - "{{ registry_mirror }}"
+
+    - name: Download K3s install script
+      ansible.builtin.get_url:
+        url: https://get.k3s.io
+        dest: "{{ k3s_install_script }}"
+        mode: '0755'
+
+    - name: Install K3s (server mode)
+      ansible.builtin.command:
+        cmd: "{{ k3s_install_script }}"
+        creates: /usr/local/bin/k3s
