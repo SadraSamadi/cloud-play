@@ -122,11 +122,11 @@ Update inventory file and add the new VPS (`inventory.yaml`):
 
 ```yaml
 all:
-	hosts:
-		vps:
-			ansible_host: VPS_IP
-			ansible_port: 22
-			ansible_user: ansible
+  hosts:
+    vps:
+      ansible_host: VPS_IP
+      ansible_port: 22
+      ansible_user: ansible
 ```
 
 ---
