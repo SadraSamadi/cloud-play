@@ -1,26 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-				name="viewport">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>Frontend</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <title>Frontend</title>
 </head>
-<body>
-<div id="root"></div>
+<body style="margin: 0; padding: 0; font-family: sans-serif">
+<div
+  style="width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div id="root"></div>
+  <div style="font-size: 100px">Hello, Hossein!✌️</div>
+  <div style="font-size: 100px">Fuck you, Shahab!👍</div>
+</div>
 <script>
-	async function request(url) {
-		const res = await fetch(url);
-		return res.json();
-	}
-	async function main() {
-		const config = await request("/assets/config.json");
-		const data = await request(config.url);
-		const root = document.getElementById("root");
-		root.innerText = JSON.stringify(data);
-	}
-	document.addEventListener("DOMContentLoaded", main);
+  async function request(url) {
+    const res = await fetch(url);
+    return res.json();
+  }
+  async function main() {
+    const config = await request("/assets/config.json");
+    const data = await request(config.url);
+    const root = document.getElementById("root");
+    root.innerText = JSON.stringify(data);
+  }
+  document.addEventListener("DOMContentLoaded", main);
 </script>
 </body>
 </html>
