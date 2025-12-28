@@ -21,5 +21,5 @@ jobs:
       - name: Build and push Docker image
         run: |
           cd apps/backend
-          docker build -t sadrasamadi/shuttle-backend:latest .
-          docker push sadrasamadi/shuttle-backend:latest
+          docker build -t sadrasamadi/shuttle-backend:${{ steps.vars.outputs.SHA_SHORT }} .
+          docker push sadrasamadi/shuttle-backend:${{ steps.vars.outputs.SHA_SHORT }}
