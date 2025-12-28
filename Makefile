@@ -14,5 +14,5 @@ flux-boot:
 		--owner=$(GITHUB_USER) \
 		--repository=cloud-play \
 		--branch=main \
-		--path=k8s \
+		--path=k3s \
 		--personal

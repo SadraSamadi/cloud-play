@@ -10,7 +10,7 @@ import (
 )
 
 type Item struct {
-	ID   int    `json:"id"`
+	Id   int    `json:"id"`
 	Name string `json:"name"`
 }
 
@@ -43,7 +43,7 @@ func GetItems() ([]Item, error) {
 	var items []Item
 	for rows.Next() {
 		item := Item{}
-		err = rows.Scan(&item.ID, &item.Name)
+		err = rows.Scan(&item.Id, &item.Name)
 		if err != nil {
 			return nil, err
 		}
