@@ -6,5 +6,5 @@ metadata:
 data:
   config.json: |
     {
-      "url": "https://api.shuttle.sadra.xyz"
+      "url": "http://api.sadra.xyz"
     }

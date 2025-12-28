@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: frontend
+  namespace: shuttle
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`sadra.xyz`)
+      kind: Rule
+      services:
+        - name: frontend
+          port: 80
