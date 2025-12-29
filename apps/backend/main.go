@@ -2,12 +2,10 @@ package main
 
 import (
 	"context"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5"
 	"net/http"
 	"os"
-	"time"
 )
 
 type Item struct {
@@ -17,13 +15,7 @@ type Item struct {
 
 func main() {
 	r := gin.Default()
-	r.Use(cors.New(cors.Config{
-		AllowAllOrigins:  true,
-		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
-		AllowHeaders:     []string{"*"},
-		AllowCredentials: false,
-		MaxAge:           12 * time.Hour,
-	}))
+	//r.Use(cors.Default())
 	r.GET("/", func(c *gin.Context) {
 		items, err := GetItems()
 		if err == nil {
