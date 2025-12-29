@@ -6,6 +6,13 @@
         name="viewport">
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
   <title>Frontend</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #263238;
+      color: #FAFAFA;
+    }
+  </style>
 </head>
 <body>
 <div id="root"></div>
@@ -14,14 +21,14 @@
     const res = await fetch(url);
     return res.json();
   }
-
   async function main() {
     const config = await request("/assets/config.json");
     const data = await request(config.url);
     const root = document.getElementById("root");
-    root.innerText = JSON.stringify(data);
+    const block = document.createElement("pre");
+    block.innerText = JSON.stringify({config, data}, null, 2);
+    root.append(block);
   }
-
   document.addEventListener("DOMContentLoaded", main);
 </script>
 </body>

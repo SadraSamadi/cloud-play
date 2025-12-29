@@ -20,7 +20,11 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		items, err := GetItems()
 		if err == nil {
-			c.JSON(http.StatusOK, gin.H{"items": items})
+			c.JSON(http.StatusOK, gin.H{
+				"status":  "ok",
+				"message": "OK",
+				"payload": items,
+			})
 		} else {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		}
@@ -36,7 +40,7 @@ func GetItems() ([]Item, error) {
 		return nil, err
 	}
 	defer db.Close(ctx)
-	rows, err := db.Query(ctx, "select * from items")
+	rows, err := db.Query(ctx, "select id, name from items")
 	if err != nil {
 		return nil, err
 	}
