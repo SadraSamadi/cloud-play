@@ -9,6 +9,7 @@ spec:
   filterTags:
     pattern: '^latest$'
   policy:
-    alphabetical: { }
+    alphabetical:
+      order: asc
   digestReflectionPolicy: Always
   interval: 1m0s
