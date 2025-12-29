@@ -6,7 +6,6 @@ metadata:
 spec:
   valuesContent: |-
     additionalArguments:
-      - "--entryPoints.db.address=:5000"
       - "--certificatesresolvers.le.acme.email=info@shuttle.com"
       - "--certificatesresolvers.le.acme.storage=/data/acme.json"
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"

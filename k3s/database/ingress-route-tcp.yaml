@@ -5,7 +5,7 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - db
+    - websecure
   routes:
     - match: HostSNI(`db.sadra.xyz`)
       services:
