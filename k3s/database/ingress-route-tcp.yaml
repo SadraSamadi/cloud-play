@@ -5,11 +5,9 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - websecure
+    - db
   routes:
     - match: HostSNI(`db.sadra.xyz`)
       services:
         - name: database-rw
           port: 5432
-  tls:
-    passthrough: true
