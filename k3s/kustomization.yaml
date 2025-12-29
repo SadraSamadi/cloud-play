@@ -4,5 +4,6 @@ resources:
   - flux-system
   - traefik
   - shared
+  - database
   - backend
   - frontend
