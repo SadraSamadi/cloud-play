@@ -5,7 +5,7 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`sadra.xyz`)
       kind: Rule
