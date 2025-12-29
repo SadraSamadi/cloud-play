@@ -6,4 +6,5 @@ resources:
   - helm-release.yaml
   - secret.yaml
   - cluster.yaml
+  - service.yaml
   - ingress-route-tcp.yaml
