@@ -1,16 +1,16 @@
-#apiVersion: postgresql.cnpg.io/v1
-#kind: Cluster
-#metadata:
-#  name: db-cluster
-#  namespace: shuttle
-#spec:
-#  instances: 3
-#  bootstrap:
-#    initdb:
-#      database: shuttle
-#      owner: shuttle
-#      secret:
-#        name: db-secret
-#  enableSuperuserAccess: true
-#  storage:
-#    size: 1Gi
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: db-cluster
+  namespace: shuttle
+spec:
+  instances: 3
+  bootstrap:
+    initdb:
+      database: shuttle
+      owner: shuttle
+      secret:
+        name: db-secret
+  enableSuperuserAccess: true
+  storage:
+    size: 1Gi
