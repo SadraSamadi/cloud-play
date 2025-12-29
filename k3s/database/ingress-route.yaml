@@ -1,13 +1,13 @@
 apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+kind: IngressRouteTCP
 metadata:
   name: database
   namespace: shuttle
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
-    - match: Host(`db.sadra.xyz`)
+    - match: HostSNI(`db.sadra.xyz`)
       kind: Rule
       services:
         - name: database-rw
