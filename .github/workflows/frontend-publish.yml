@@ -27,6 +27,5 @@ jobs:
       - name: Build and push Docker image
         run: |
           cd apps/frontend
-          TS=$(date +%Y%m%d%H%M%S)
-          docker build -t sadrasamadi/shuttle-frontend:$TS .
-          docker push sadrasamadi/shuttle-frontend:$TS
+          docker build -t sadrasamadi/shuttle-frontend:latest .
+          docker push sadrasamadi/shuttle-frontend:latest
