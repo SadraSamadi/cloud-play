@@ -8,7 +8,6 @@ spec:
     - websecure
   routes:
     - match: HostSNI(`db.sadra.xyz`)
-      kind: Rule
       services:
         - name: database-rw
           port: 5432
