@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: db-cluster
+  name: database
   namespace: shuttle
 spec:
   instances: 3
@@ -10,7 +10,7 @@ spec:
       database: shuttle
       owner: shuttle
       secret:
-        name: db-secret
+        name: database
   enableSuperuserAccess: true
   storage:
     size: 1Gi
