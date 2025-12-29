@@ -6,7 +6,7 @@ metadata:
 spec:
   valuesContent: |-
     additionalArguments:
-      - "--certificatesresolvers.le.acme.email=info@shuttle.com"
+      - "--certificatesresolvers.le.acme.email=shuttle@sadra.xyz"
       - "--certificatesresolvers.le.acme.storage=/data/acme.json"
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
     persistence:

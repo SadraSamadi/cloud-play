@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`sadra.xyz`)
+    - match: Host(`app.shuttle.sadra.xyz`)
       kind: Rule
       services:
         - name: frontend

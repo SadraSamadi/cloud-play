@@ -7,9 +7,9 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: HostSNI(`db.sadra.xyz`)
+    - match: HostSNI(`db.shuttle.sadra.xyz`)
       services:
         - name: database-rw
           port: 5432
-  tls:
-    passthrough: true
+#  tls:
+#    passthrough: true
