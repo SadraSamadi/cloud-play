@@ -26,7 +26,11 @@ func main() {
 				"payload": items,
 			})
 		} else {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"code":    "internal",
+				"message": err.Error(),
+				"payload": nil,
+			})
 		}
 	})
 	_ = r.Run()
