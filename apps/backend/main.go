@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5"
 	"net/http"
@@ -15,7 +16,7 @@ type Item struct {
 
 func main() {
 	r := gin.Default()
-	//r.Use(cors.Default())
+	r.Use(cors.Default())
 	r.GET("/", func(c *gin.Context) {
 		items, err := GetItems()
 		if err == nil {
