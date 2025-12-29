@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: sadrasamadi/shuttle-frontend:234bc518cb0f5916d691a2224ef2ca029f091967
+          image: sadrasamadi/shuttle-frontend:146b81a367e001991a37341cf1eee0c88628da96
           imagePullPolicy: Always
           volumeMounts:
             - name: config
