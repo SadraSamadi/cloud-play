@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sadrasamadi/shuttle-backend:234bc518cb0f5916d691a2224ef2ca029f091967
+          image: sadrasamadi/shuttle-backend:9f88a1d15cc65b1622877161a00458fca7560564
           imagePullPolicy: Always
           env:
             - name: DB_URL
