@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: sadrasamadi/shuttle-frontend:latest@sha256:c7084b6b3906dd1d304961f2d1fc09a0720afd8390cd48a8db7289241c286268 # {"$imagepolicy": "shuttle:frontend"}
+          image: sadrasamadi/shuttle-frontend:latest@sha256:631a8e8a3a6533d4fdc1810c019be708cfad4cf2c88ff7d7ef54d58be33d7f79 # {"$imagepolicy": "shuttle:frontend"}
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: config
