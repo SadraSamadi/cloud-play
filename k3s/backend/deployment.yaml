@@ -17,7 +17,7 @@ spec:
       containers:
         - name: backend
           image: sadrasamadi/shuttle-backend:latest@sha256:a68c6a7d9b888e9321dbec9ac5777156cecb22ecc01ed3894c4dddb0aa7d4941 # {"$imagepolicy": "shuttle:backend"}
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DB_URL
               valueFrom:
