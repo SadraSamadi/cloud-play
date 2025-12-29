@@ -16,11 +16,7 @@ spec:
       author:
         email: flux@shuttle.sadra.xyz
         name: Flux
-      messageTemplate: |-
-        {{ .AutomationObject }}
-        {{ range .Changed.Changes -}}
-        - {{ print .OldValue }} -> {{ print .NewValue }}
-        {{ end -}}
+      messageTemplate: Image Update Automation
     push:
       branch: main
   interval: 1m0s
