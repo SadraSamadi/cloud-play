@@ -11,5 +11,5 @@ spec:
       services:
         - name: database-rw
           port: 5432
-#  tls:
-#    passthrough: true
+  tls:
+    passthrough: true
