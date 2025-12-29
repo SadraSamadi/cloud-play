@@ -21,7 +21,7 @@ func main() {
 		items, err := GetItems()
 		if err == nil {
 			c.JSON(http.StatusOK, gin.H{
-				"status":  "ok",
+				"code":    "ok",
 				"message": "OK",
 				"payload": items,
 			})
