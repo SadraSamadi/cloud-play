@@ -36,7 +36,7 @@ func GetItems() ([]Item, error) {
 		return nil, err
 	}
 	defer db.Close(ctx)
-	rows, err := db.Query(ctx, "select id, name from items")
+	rows, err := db.Query(ctx, "select * from items")
 	if err != nil {
 		return nil, err
 	}
