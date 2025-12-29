@@ -1,0 +1,29 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: default
+  namespace: shuttle
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: flux@shuttle.sadra.xyz
+        name: Flux
+      messageTemplate: |-
+        {{ .AutomationObject }}
+        {{ range .Changed.Changes -}}
+        - {{ print .OldValue }} -> {{ print .NewValue }}
+        {{ end -}}
+    push:
+      branch: main
+  interval: 1m0s
+  update:
+    path: ./k3s
+    strategy: Setters

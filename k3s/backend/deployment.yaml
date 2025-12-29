@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: backend
   namespace: shuttle
-  labels:
-    app: backend
 spec:
   replicas: 3
   selector:
@@ -18,8 +16,8 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sadrasamadi/shuttle-backend:78d403267acf24d22fa79ad4b8a4f17f29f652f6
-          imagePullPolicy: Always
+          image: sadrasamadi/shuttle-backend:latest@sha256:5bafe5a6b37e7515589332dc66f0bd66dd529796e32342e35ab303f525b9e72c # {"$imagepolicy": "shuttle:backend"}
+          imagePullPolicy: IfNotPresent
           env:
             - name: DB_URL
               valueFrom:

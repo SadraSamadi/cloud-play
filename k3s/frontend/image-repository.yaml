@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: frontend
+  namespace: shuttle
+spec:
+  image: sadrasamadi/shuttle-frontend
+  interval: 1m0s

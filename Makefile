@@ -10,9 +10,11 @@ kube-down:
 
 flux-boot:
 	flux bootstrap github \
+		--components-extra=image-reflector-controller,image-automation-controller \
 		--token-auth \
 		--owner=$(GITHUB_USER) \
 		--repository=cloud-play \
 		--branch=main \
 		--path=k3s \
+		--read-write-key \
 		--personal

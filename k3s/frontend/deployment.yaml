@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: frontend
   namespace: shuttle
-  labels:
-    app: frontend
 spec:
   replicas: 2
   selector:
@@ -18,8 +16,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: sadrasamadi/shuttle-frontend:144d55777943d6573d0f3006d457061ae7bd93e9
-          imagePullPolicy: Always
+          image: sadrasamadi/shuttle-frontend:latest@sha256:c7084b6b3906dd1d304961f2d1fc09a0720afd8390cd48a8db7289241c286268 # {"$imagepolicy": "shuttle:frontend"}
+          imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: config
               mountPath: /usr/share/nginx/html/assets
