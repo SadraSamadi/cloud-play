@@ -13,3 +13,6 @@ spec:
         name: infisical
       version: '1.7.2'
   interval: 1m0s
+  values:
+    ingress:
+      enabled: false
