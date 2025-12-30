@@ -1,4 +1,16 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
-resources:
-  - ../infrastructures/shuttle.yaml
+metadata:
+  name: infrastructures
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: flux-system
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./k3s/infrastructures
+  interval: 10m0s
+  wait: true
+  timeout: 5m0s
+  prune: true
