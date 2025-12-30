@@ -5,4 +5,3 @@ resources:
   - flux-system.yaml
   - cnpg-system.yaml
   - shuttle.yaml
-  - base
