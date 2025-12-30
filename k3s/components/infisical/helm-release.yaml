@@ -15,9 +15,11 @@ spec:
   interval: 1m0s
   values:
     postgresql:
-      enabled: false
+      image:
+        registry: docker.arvancloud.ir
     redis:
-      enabled: false
+      image:
+        registry: docker.arvancloud.ir
     ingress:
       enabled: false
       nginx:
