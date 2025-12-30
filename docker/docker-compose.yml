@@ -23,20 +23,35 @@ services:
       - "80:80"
       - "443:443"
 
+  database:
+    image: postgres:18
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_DB: shuttle
+      POSTGRES_USER: shuttle
+      POSTGRES_PASSWORD: secret
+    networks:
+      - proxy
+    ports:
+      - "5432:5432"
+
   backend:
     build: ../apps/backend
     container_name: backend
-    restart: unless-stopped
+    restart: always
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.localhost`)"
+    environment:
+      DB_URL: postgres://shuttle:secret@database:5432/shuttle
     networks:
       - proxy
 
   frontend:
     build: ../apps/frontend
     container_name: frontend
-    restart: unless-stopped
+    restart: always
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`app.localhost`)"
