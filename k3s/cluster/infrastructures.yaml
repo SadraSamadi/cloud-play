@@ -1,0 +1,16 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infrastructures
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: flux-system
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./k3s/infrastructures
+  interval: 10m0s
+  wait: true
+  timeout: 5m0s
+  prune: true
