@@ -9,6 +9,8 @@ spec:
     name: redis
   interval: 1m0s
   values:
+    global:
+      imageRegistry: docker.arvancloud.ir
     image:
       registry: docker.arvancloud.ir
     architecture: standalone
