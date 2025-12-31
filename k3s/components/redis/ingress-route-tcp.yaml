@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - redis
   routes:
-    - match: HostSNI(`redis.shuttle.sadra.xyz`)
+    - match: HostSNI(`*`)
       services:
         - name: redis-master
           port: 6379
