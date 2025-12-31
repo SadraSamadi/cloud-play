@@ -21,5 +21,5 @@ spec:
       branch: main
   interval: 1m0s
   update:
-    path: ./components/dev
+    path: ./dev
     strategy: Setters
