@@ -5,7 +5,7 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - websecure
+    - postgres
   routes:
     - match: HostSNI(`postgres.shuttle.sadra.xyz`)
       services:

@@ -16,8 +16,8 @@ spec:
         port: ':5432'
       redis:
         port: ':6379'
-    ingressRoute:
-      dashboard:
-        enabled: true
-        matchRule: Host(`traefik.shuttle.sadra.xyz`)
-        entryPoints: ["websecure"]
+#    ingressRoute:
+#      dashboard:
+#        enabled: true
+#        matchRule: Host(`traefik.shuttle.sadra.xyz`)
+#        entryPoints: ["websecure"]
