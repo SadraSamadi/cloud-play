@@ -5,7 +5,7 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - websecure
+    - redis
   routes:
     - match: HostSNI(`redis.shuttle.sadra.xyz`)
       services:

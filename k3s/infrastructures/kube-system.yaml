@@ -6,6 +6,7 @@ metadata:
 spec:
   valuesContent: |-
     additionalArguments:
+      - "--entryPoints.redis.address=:6379"
       - "--certificatesresolvers.le.acme.email=info@shuttle.sadra.xyz"
       - "--certificatesresolvers.le.acme.storage=/data/acme.json"
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
