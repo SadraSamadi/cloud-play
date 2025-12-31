@@ -23,9 +23,9 @@ services:
       - "80:80"
       - "443:443"
 
-  database:
+  postgres:
     image: postgres:18
-    container_name: database
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_DB: shuttle
@@ -44,7 +44,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.localhost`)"
     environment:
-      DB_URL: postgres://shuttle:secret@database:5432/shuttle
+      DB_URL: postgres://shuttle:secret@postgres:5432/shuttle
     networks:
       - proxy
 
