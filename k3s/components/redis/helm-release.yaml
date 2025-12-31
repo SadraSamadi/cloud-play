@@ -9,6 +9,8 @@ spec:
     name: redis
   interval: 1m0s
   values:
+    image:
+      registry: docker.arvancloud.ir
     architecture: standalone
     auth:
       existingSecret: redis
