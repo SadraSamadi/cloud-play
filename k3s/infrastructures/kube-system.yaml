@@ -14,3 +14,4 @@ spec:
             entryPoint: web
     persistence:
       enabled: true
+      size: 1Gi
