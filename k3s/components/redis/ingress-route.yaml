@@ -7,10 +7,9 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`redis.shuttle.sadra.xyz`)
-      kind: Rule
+    - match: HostSNI(`redis.shuttle.sadra.xyz`)
       services:
-        - name: redis
-          port: 8080
+        - name: redis-master
+          port: 6379
   tls:
     certResolver: le
