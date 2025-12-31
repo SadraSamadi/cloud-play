@@ -13,8 +13,8 @@ spec:
       security:
         allowInsecureImages: true
       imageRegistry: docker.arvancloud.ir
-    image:
-      registry: docker.arvancloud.ir
+#    image:
+#      registry: docker.arvancloud.ir
     architecture: standalone
     auth:
       existingSecret: redis
