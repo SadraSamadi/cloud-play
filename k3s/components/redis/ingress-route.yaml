@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: redis
+  namespace: shuttle
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`redis.shuttle.sadra.xyz`)
+      kind: Rule
+      services:
+        - name: redis
+          port: 8080
+  tls:
+    certResolver: le
