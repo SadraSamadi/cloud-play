@@ -5,11 +5,11 @@ metadata:
   namespace: shuttle
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: HostSNI(`redis.shuttle.sadra.xyz`)
       services:
         - name: redis-master
           port: 6379
-#  tls:
-#    passthrough: true
+  tls:
+    certResolver: le
