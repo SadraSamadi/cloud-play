@@ -37,7 +37,7 @@ func main() {
 }
 
 func GetItems() ([]Item, error) {
-	url := os.Getenv("DB_URL")
+	url := os.Getenv("POSTGRES")
 	ctx := context.Background()
 	db, err := pgx.Connect(ctx, url)
 	if err != nil {
