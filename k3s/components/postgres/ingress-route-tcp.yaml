@@ -1,15 +1,15 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: database
+  name: postgres
   namespace: shuttle
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: HostSNI(`db.shuttle.sadra.xyz`)
+    - match: HostSNI(`postgres.shuttle.sadra.xyz`)
       services:
-        - name: database-rw
+        - name: postgres-rw
           port: 5432
   tls:
     certResolver: le
