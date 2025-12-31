@@ -17,6 +17,7 @@ type Item struct {
 
 func main() {
 	r := gin.Default()
+
 	r.Use(cors.Default())
 	r.GET("/", func(c *gin.Context) {
 		items, err := GetItems()
