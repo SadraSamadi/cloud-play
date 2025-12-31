@@ -12,4 +12,5 @@ spec:
         - name: redis-master
           port: 6379
   tls:
-    certResolver: le
+    passthrough: true
+#    certResolver: le
