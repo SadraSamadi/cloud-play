@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: redis
+  namespace: shuttle
+spec:
+  interval: 1m0s
+  url: oci://registry-1.docker.io/bitnamicharts/redis
+  ref:
+    tag: '24.1.0'

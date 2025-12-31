@@ -4,14 +4,9 @@ metadata:
   name: redis
   namespace: shuttle
 spec:
-  chart:
-    spec:
-      chart: redis
-      reconcileStrategy: ChartVersion
-      sourceRef:
-        kind: HelmRepository
-        name: bitnami
-      version: '24.1.0'
+  chartRef:
+    kind: OCIRepository
+    name: redis
   interval: 1m0s
   values:
     architecture: standalone
