@@ -4,4 +4,4 @@ resources:
   - secret.yaml
   - oci-repository.yaml
   - helm-release.yaml
-  - ingress-route.yaml
+  - ingress-route-tcp.yaml
