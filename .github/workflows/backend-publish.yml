@@ -7,25 +7,59 @@ on:
     paths:
       - 'apps/backend/**'
 
+#jobs:
+#  build-and-push:
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#      - name: Checkout repository
+#        uses: actions/checkout@v3
+#
+#      - name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v3
+#
+#      - name: Log in to Docker Hub
+#        uses: docker/login-action@v3
+#        with:
+#          username: ${{ secrets.DOCKER_USERNAME }}
+#          password: ${{ secrets.DOCKER_PASSWORD }}
+#
+#      - name: Build and push Docker image
+#        run: |
+#          cd apps/backend
+#          docker build -t sadrasamadi/shuttle-backend:latest .
+#          docker push sadrasamadi/shuttle-backend:latest
 jobs:
-  build-and-push:
+  build-push:
+    env:
+      IMAGE: sadrasamadi/shuttle-backend
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and push Docker image
+      - name: Generate build ID
+        id: prep
         run: |
-          cd apps/backend
-          docker build -t sadrasamadi/shuttle-backend:latest .
-          docker push sadrasamadi/shuttle-backend:latest
+          branch=${GITHUB_REF##*/}
+          sha=${GITHUB_SHA::8}
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
+      # These are prerequisites for the docker build step
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and publish container image with tag
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: ./apps/backend
+          file: ./Dockerfile
+          tags: |
+            ${{ env.IMAGE }}:${{ steps.prep.outputs.BUILD_ID }}
