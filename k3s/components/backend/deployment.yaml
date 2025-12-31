@@ -19,11 +19,11 @@ spec:
           image: sadrasamadi/shuttle-backend:latest@sha256:ef1cce2ef1c7b0bf4d8c22cf71e9448c5d4cfce7435898112d99a215fa53042d # {"$imagepolicy": "shuttle:backend"}
           imagePullPolicy: Always
           env:
-            - name: DB_URL
+            - name: POSTGRES
               valueFrom:
                 secretKeyRef:
                   name: backend
-                  key: DB_URL
+                  key: POSTGRES
           ports:
             - containerPort: 8080
               protocol: TCP
