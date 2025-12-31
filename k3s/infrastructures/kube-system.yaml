@@ -6,12 +6,18 @@ metadata:
 spec:
   valuesContent: |-
     additionalArguments:
-      - "--entryPoints.redis.address=:6379"
       - "--certificatesresolvers.le.acme.email=info@shuttle.sadra.xyz"
       - "--certificatesresolvers.le.acme.storage=/data/acme.json"
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
     persistence:
       enabled: true
-      name: data
-      size: 1Gi
-      storageClass: ""
+    ports:
+      postgres:
+        port: ':5432'
+      redis:
+        port: ':6379'
+    ingressRoute:
+      dashboard:
+        enabled: true
+        matchRule: Host(`traefik.shuttle.sadra.xyz`)
+        entryPoints: ["websecure"]
