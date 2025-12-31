@@ -17,9 +17,9 @@ spec:
       size: 1Gi
     ports:
       postgres:
-        port: ':5432'
+        port: 5432
       redis:
-        port: ':6379'
+        port: 6379
     ingressRoute:
       dashboard:
         enabled: true
