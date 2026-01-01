@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend
-  namespace: prod
+  namespace: shared
 data:
   config.json: |
     {
