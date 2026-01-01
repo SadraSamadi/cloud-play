@@ -4,4 +4,4 @@ resources:
   - infra.yaml
   - shared.yaml
   - dev.yaml
-  - prod.yaml
+#  - prod.yaml
