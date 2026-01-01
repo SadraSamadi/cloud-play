@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sadrasamadi/shuttle-backend:latest@sha256:252075e2d5970c202b3a5cb17d1cd98275c08eb858cc09dd22f9f83880e3b5cf # {"$imagepolicy": "shuttle:backend"}
+          image: sadrasamadi/shuttle-backend:latest@sha256:bdb6958849b062d51f429255bc2345b2d670618390d31b600240e54110592349 # {"$imagepolicy": "shuttle:backend"}
           imagePullPolicy: Always
           env:
             - name: POSTGRES
