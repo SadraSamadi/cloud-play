@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: shared
 resources:
   - namespace.yaml
-  - image-update-automation.yaml
   - ../../components/postgres-cluster

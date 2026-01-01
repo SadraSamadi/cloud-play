@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImageUpdateAutomation
 metadata:
   name: default
-  namespace: shared
+  namespace: dev
 spec:
   sourceRef:
     kind: GitRepository
@@ -21,5 +21,5 @@ spec:
       branch: main
   interval: 1m0s
   update:
-    path: ./k3s/apps/components
+    path: ./k3s/apps/overlays/dev
     strategy: Setters
