@@ -5,7 +5,3 @@ resources:
   - namespace.yaml
   - image-update-automation.yaml
   - ../../components/postgres-cluster
-  - ../../components/postgres-db
-  - ../../components/redis
-  - ../../components/backend
-  - ../../components/frontend
