@@ -3,10 +3,18 @@ kind: Kustomization
 namespace: prod
 resources:
   - namespace.yaml
+  - image-update-automation.yaml
   - ../../components/postgres-db
   - ../../components/redis
   - ../../components/backend
   - ../../components/frontend
+images:
+  - name: sadrasamadi/shuttle-backend
+    newTag: latest
+    digest: sha256:451f0413f27652340282463601245d919f50ff406f73ee5d9dd9b08e5312634f # {"$imagepolicy": "prod:backend:digest"}
+  - name: sadrasamadi/shuttle-frontend
+    newTag: latest
+    digest: sha256:631a8e8a3a6533d4fdc1810c019be708cfad4cf2c88ff7d7ef54d58be33d7f79 # {"$imagepolicy": "prod:frontend:digest"}
 patches:
   - target:
       kind: IngressRouteTCP
