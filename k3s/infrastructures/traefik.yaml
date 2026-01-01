@@ -6,7 +6,7 @@ metadata:
 spec:
   valuesContent: |-
     certificatesResolvers:
-      le:
+      letsencrypt:
         acme:
           email: info@shuttle.sadra.xyz
           storage: /data/acme.json
