@@ -11,7 +11,7 @@ resources:
 images:
   - name: sadrasamadi/shuttle-backend
     newTag: latest
-    digest: sha256:252075e2d5970c202b3a5cb17d1cd98275c08eb858cc09dd22f9f83880e3b5cf # {"$imagepolicy": "dev:backend:digest"}
+    digest: sha256:451f0413f27652340282463601245d919f50ff406f73ee5d9dd9b08e5312634f # {"$imagepolicy": "dev:backend:digest"}
   - name: sadrasamadi/shuttle-frontend
     newTag: latest
     digest: sha256:631a8e8a3a6533d4fdc1810c019be708cfad4cf2c88ff7d7ef54d58be33d7f79 # {"$imagepolicy": "dev:frontend:digest"}
