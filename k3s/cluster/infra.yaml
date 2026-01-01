@@ -4,8 +4,6 @@ metadata:
   name: infra
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system
