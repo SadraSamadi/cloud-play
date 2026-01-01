@@ -23,12 +23,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: backend
-                  key: POSTGRES
+                  key: postgres_url
             - name: REDIS
               valueFrom:
                 secretKeyRef:
                   name: backend
-                  key: REDIS
+                  key: redis_url
           ports:
             - containerPort: 8080
               protocol: TCP
