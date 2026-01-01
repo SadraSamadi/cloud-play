@@ -15,6 +15,6 @@ flux-boot:
 		--owner=$(GITHUB_USER) \
 		--repository=cloud-play \
 		--branch=main \
-		--path=./k3s/cluster \
+		--path=./k3s \
 		--read-write-key \
 		--personal
