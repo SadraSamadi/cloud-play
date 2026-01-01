@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: kafka
+  interval: 24h
+  values:
+    global:
+      security:
+        allowInsecureImages: true
+      imageRegistry: docker.arvancloud.ir

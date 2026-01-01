@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  interval: 24h
+  url: oci://docker.arvancloud.ir/bitnamicharts/kafka
+  ref:
+    tag: '32.4.3'
