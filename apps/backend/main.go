@@ -22,17 +22,17 @@ func main() {
 		items, err := GetItems()
 		if err == nil {
 			c.JSON(http.StatusOK, gin.H{
-				"code":    "ok",
-				"message": "OK",
-				"time":    time.Now(),
-				"payload": items,
+				"code":      "ok",
+				"message":   "OK",
+				"timestamp": time.Now(),
+				"payload":   items,
 			})
 		} else {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"code":    "internal",
-				"message": err.Error(),
-				"time":    time.Now(),
-				"payload": nil,
+				"code":      "internal",
+				"message":   err.Error(),
+				"timestamp": time.Now(),
+				"payload":   nil,
 			})
 		}
 	})
