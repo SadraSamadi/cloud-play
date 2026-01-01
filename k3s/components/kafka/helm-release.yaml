@@ -9,9 +9,9 @@ spec:
     name: kafka
   interval: 30s
   values:
-#    global:
-#      security:
-#        allowInsecureImages: true
-#      imageRegistry: docker.arvancloud.ir
+    global:
+      security:
+        allowInsecureImages: true
+      imageRegistry: docker.arvancloud.ir
     controller:
       replicaCount: 1
