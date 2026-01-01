@@ -8,8 +8,8 @@ spec:
     kind: OCIRepository
     name: kafka
   interval: 24h
-  values:
-    global:
-      security:
-        allowInsecureImages: true
-      imageRegistry: docker.arvancloud.ir
+#  values:
+#    global:
+#      security:
+#        allowInsecureImages: true
+#      imageRegistry: docker.arvancloud.ir
