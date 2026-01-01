@@ -8,10 +8,10 @@ carefully. All commands assume you are starting from a clean Ubuntu 22.04 LTS VP
 ## 1. Log in to the VPS as root
 
 ```bash
-ssh root@VPS_IP
+ssh root@VPS_ADDRESS
 ````
 
-Replace `VPS_IP` with the VPS public IP.
+Replace `VPS_ADDRESS` with the VPS public address (host/ip).
 
 ---
 
@@ -45,7 +45,7 @@ Test login as the new user:
 
 ```bash
 exit
-ssh ansible@VPS_IP
+ssh ansible@VPS_ADDRESS
 ```
 
 ---
@@ -111,7 +111,7 @@ sudo reboot
 Wait for the VPS to come back online, then reconnect:
 
 ```bash
-ssh ansible@VPS_IP
+ssh ansible@VPS_ADDRESS
 ```
 
 ---
@@ -124,7 +124,7 @@ Update inventory file and add the new VPS (`inventory.yaml`):
 all:
   hosts:
     vps:
-      ansible_host: VPS_IP
+      ansible_host: VPS_ADDRESS
       ansible_port: 22
       ansible_user: ansible
 ```
