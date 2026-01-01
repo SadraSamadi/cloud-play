@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: sadrasamadi/shuttle-backend
+          imagePullPolicy: Always
+          env:
+            - name: POSTGRES
+              valueFrom:
+                secretKeyRef:
+                  name: backend
+                  key: postgres_url
+            - name: REDIS
+              valueFrom:
+                secretKeyRef:
+                  name: backend
+                  key: redis_url
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always
