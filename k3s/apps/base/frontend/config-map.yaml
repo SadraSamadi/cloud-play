@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend
+  namespace: shared
+data:
+  config.json: |
+    {
+      "url": "https://shared.api.shuttle.sadra.xyz"
+    }

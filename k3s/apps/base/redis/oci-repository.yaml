@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: redis
+  namespace: shared
+spec:
+  interval: 1m0s
+  url: oci://docker.arvancloud.ir/bitnamicharts/redis
+  ref:
+    tag: '24.1.0'

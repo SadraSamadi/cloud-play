@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: prod
+resources:
+  - namespace.yaml
+  - ../base/postgres-db
+  - ../base/redis
+  - ../base/backend
+  - ../base/frontend
+patches:
+  - target:
+      kind: IngressRouteTCP
+      name: redis
+    patch: |
+      - op: replace
+        path: /spec/routes/0/match
+        value: HostSNI(`redis.shuttle.sadra.xyz`)
+  - path: backend.secret.yaml
+  - target:
+      kind: IngressRoute
+      name: backend
+    patch: |
+      - op: replace
+        path: /spec/routes/0/match
+        value: Host(`api.shuttle.sadra.xyz`)
+  - path: frontend.config-map.yaml
+  - target:
+      kind: IngressRoute
+      name: frontend
+    patch: |
+      - op: replace
+        path: /spec/routes/0/match
+        value: Host(`app.shuttle.sadra.xyz`)

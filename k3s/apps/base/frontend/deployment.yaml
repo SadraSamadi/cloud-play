@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: shared
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: sadrasamadi/shuttle-frontend:latest@sha256:631a8e8a3a6533d4fdc1810c019be708cfad4cf2c88ff7d7ef54d58be33d7f79 # {"$imagepolicy": "shared:frontend"}
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: /usr/share/nginx/html/assets
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
+      volumes:
+        - name: config
+          configMap:
+            name: frontend

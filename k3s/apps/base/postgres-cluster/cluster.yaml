@@ -1,0 +1,16 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres
+  namespace: shared
+spec:
+  instances: 1
+  bootstrap:
+    initdb:
+      database: shuttle
+      owner: shuttle
+      secret:
+        name: postgres
+  enableSuperuserAccess: true
+  storage:
+    size: 1Gi
