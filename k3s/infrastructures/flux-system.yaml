@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImageUpdateAutomation
 metadata:
   name: default
-  namespace: flux-system
+  namespace: shuttle
 spec:
   sourceRef:
     kind: GitRepository
