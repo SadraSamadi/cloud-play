@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - traefik.yaml
   - cnpg.yaml
-  - rook-ceph.yaml
+  - rook.yaml
