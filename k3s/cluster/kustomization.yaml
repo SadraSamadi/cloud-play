@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - infra.yaml
   - shared.yaml
+  - monitor.yaml
   - dev.yaml
 #  - prod.yaml
