@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: monitor
 resources:
   - namespace.yaml
-  - prometheus-stack.yaml
+#  - prometheus-stack.yaml
