@@ -27,3 +27,6 @@ spec:
         name: rook-ceph
       version: '1.18.8'
   interval: 1m
+  values:
+    image:
+      repository: docker.arvancloud.ir/rook/ceph
