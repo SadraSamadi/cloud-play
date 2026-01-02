@@ -44,7 +44,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.localhost`)"
     environment:
-      DB_URL: postgres://shuttle:secret@postgres:5432/shuttle
+      POSTGRES: postgres://shuttle:secret@postgres:5432/shuttle
     networks:
       - proxy
 

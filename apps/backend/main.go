@@ -47,6 +47,9 @@ func GetItems() ([]Item, error) {
 		return nil, err
 	}
 	defer db.Close(ctx)
+	if err = Migrate(db); err != nil {
+		return nil, err
+	}
 	rows, err := db.Query(ctx, "select id, name from items")
 	if err != nil {
 		return nil, err
@@ -61,4 +64,25 @@ func GetItems() ([]Item, error) {
 		items = append(items, item)
 	}
 	return items, rows.Err()
+}
+
+func Migrate(db *pgx.Conn) error {
+	ctx := context.Background()
+	var exists bool
+	row := db.QueryRow(ctx, "select exists(select from information_schema.tables where table_schema='public' and table_name='items')")
+	if err := row.Scan(&exists); err != nil {
+		return err
+	}
+	if exists {
+		return nil
+	}
+	_, err := db.Exec(ctx, "create table items (id serial primary key, name varchar(255))")
+	if err != nil {
+		return err
+	}
+	_, err = db.Exec(ctx, "insert into items (name) values ('A'), ('B'), ('C')")
+	if err != nil {
+		return err
+	}
+	return nil
 }
