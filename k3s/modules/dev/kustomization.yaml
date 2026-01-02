@@ -6,6 +6,7 @@ resources:
   - image-update-automation.yaml
   - ../../components/postgres-db
   - ../../components/redis
+  - ../../components/kafka
   - ../../components/backend
   - ../../components/frontend
 images:
