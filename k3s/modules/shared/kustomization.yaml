@@ -4,7 +4,6 @@ namespace: shared
 resources:
   - namespace.yaml
   - ../../components/postgres-cluster
-  - ../../components/ceph
 patches:
   - target:
       kind: IngressRouteTCP
