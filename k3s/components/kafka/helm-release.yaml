@@ -8,4 +8,6 @@ spec:
     kind: OCIRepository
     name: kafka
   interval: 1m
-  values: { }
+  values:
+    image:
+      tage: 0.49.1-arm64
