@@ -19,6 +19,6 @@ spec:
     kind: OCIRepository
     name: prometheus-stack
   interval: 1m
-  values:
-    global:
-      imageRegistry: docker.arvancloud.ir
+#  values:
+#    global:
+#      imageRegistry: quay.io
