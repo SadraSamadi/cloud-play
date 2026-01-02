@@ -27,3 +27,6 @@ spec:
         name: swfs
       version: '0.1.9'
   interval: 24h
+  values:
+    webhook:
+      enabled: false
