@@ -8,7 +8,6 @@ resources:
   - ../../components/redis
   - ../../components/backend
   - ../../components/frontend
-  - test.job.yaml
 images:
   - name: sadrasamadi/shuttle-backend
     newTag: latest
