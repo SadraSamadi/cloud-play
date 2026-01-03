@@ -9,6 +9,6 @@ spec:
       containers:
         - name: test
           image: curlimages/curl
-          command: [ "sh", "-c", "curl \"http://backend.dev.svc.cluster.local?n=1&ts=$(date +%s)\"" ]
+          command: [ "sh", "-c", "curl \"http://backend.dev.svc.cluster.local?n=2&ts=$(date +%s)\"" ]
       restartPolicy: Never
   backoffLimit: 3
