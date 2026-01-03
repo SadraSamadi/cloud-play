@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blogo
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`default.blogo.shuttle.sadra.xyz`)
+      kind: Rule
+      services:
+        - name: blogo
+          port: 80
+  tls:
+    certResolver: letsencrypt

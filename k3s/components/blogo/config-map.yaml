@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blogo
+  namespace: default
+data:
+  DEBUG: "true"
+  LOG_MODE: "debug"
+  WEB_PORT: "8080"
+  POSTGRES_URL: "postgres://shuttle:secret@postgres-rw.default.svc.cluster.local:5432/shuttle?sslmode=disable&timezone=UTC"
+  REDIS_URL: "redis://default:secret@redis-master.default.svc.cluster.local:6379/0"
+  PASS_PEPPER: "secret"
+  JWT_SECRET: "secret"

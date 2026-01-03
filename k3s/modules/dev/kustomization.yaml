@@ -6,9 +6,13 @@ resources:
   - image-update-automation.yaml
   - ../../components/postgres-db
   - ../../components/redis
+  - ../../components/blogo
   - ../../components/backend
   - ../../components/frontend
 images:
+  - name: sadrasamadi/blogo
+    newTag: latest
+    digest: sha256:e33db444771d38ed41cd6d9c9ca1055a996b6faf590370328b52b2f460edee2c # {"$imagepolicy": "dev:blogo:digest"}
   - name: sadrasamadi/shuttle-backend
     newTag: latest
     digest: sha256:d0cc399c66d0717fa47619f9f99b742d2b3a2063f9c038dfaa098b0ee43d3ddd # {"$imagepolicy": "dev:backend:digest"}
@@ -23,6 +27,14 @@ patches:
       - op: replace
         path: /spec/routes/0/match
         value: HostSNI(`dev.redis.shuttle.sadra.xyz`)
+  - path: blogo.config-map.yaml
+  - target:
+      kind: IngressRoute
+      name: blogo
+    patch: |
+      - op: replace
+        path: /spec/routes/0/match
+        value: Host(`dev.blogo.shuttle.sadra.xyz`)
   - path: backend.secret.yaml
   - target:
       kind: IngressRoute

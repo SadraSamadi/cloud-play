@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogo
+  namespace: default
+  labels:
+    app: blogo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogo
+  template:
+    metadata:
+      name: blogo
+      labels:
+        app: blogo
+    spec:
+      containers:
+        - name: blogo
+          image: sadrasamadi/blogo
+          imagePullPolicy: Always
+          command: [ "sh", "-c", "./main serve" ]
+          envFrom:
+            - configMapRef:
+                name: blogo
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always

@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: blogo
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - name: blogo
+          image: sadrasamadi/blogo
+          imagePullPolicy: Always
+          command: [ "sh", "-c", "./main sync" ]
+          envFrom:
+            - configMapRef:
+                name: blogo
+      restartPolicy: Never
+  backoffLimit: 3
