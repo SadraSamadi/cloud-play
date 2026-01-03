@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: test
   namespace: dev
+  annotations:
+    kustomize.toolkit.fluxcd.io/force: Enabled
 spec:
   template:
     spec:
