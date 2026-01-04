@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: blogo
   namespace: default
+  annotations:
+    kustomize.toolkit.fluxcd.io/force: Enabled
 spec:
   template:
     spec:
